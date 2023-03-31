@@ -61,7 +61,7 @@ public class Medicine {
         expireDate.setDay(day);
     }
     public void setExpireDateMonth(int month) {
-        expireDate.setMonth(month);
+        expireDate.setMonthWrong(month);
     }
     public void setExpireDateYear(int year) {
         expireDate.setYearWrong(year);

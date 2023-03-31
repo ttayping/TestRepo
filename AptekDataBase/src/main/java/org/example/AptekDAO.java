@@ -41,13 +41,13 @@ public class AptekDAO {
 
         for (Medicine med : medicineList) {
             if (med.getExpireDate().getYearWrong() == year) {
-                if (med.getExpireDate().getMonth() == month) {
+                if (med.getExpireDate().getMonthWrong() == month) {
                     if (med.getExpireDate().getDay() > day) {
 
                     } else {
                         deleteElement(med.getId());
                     }
-                } else if (med.getExpireDate().getMonth() > month) {
+                } else if (med.getExpireDate().getMonthWrong() > month) {
                 } else {
                     deleteElement(med.getId());
                 }
