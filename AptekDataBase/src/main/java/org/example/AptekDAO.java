@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,43 +23,14 @@ public class AptekDAO {
 
     public void deleteExpiredMeds() throws SQLException {
         List<Medicine> medicineList = this.selectAll();
-        Connection connection = ConnectionUtil.createConnection();
+        LocalDate date = LocalDate.now();
 
         for (Medicine med : medicineList) {
-            if (med.getExpireDate2().compareTo(LocalTime.now()) < 0) {
-            }
-            ;
-            /*  else*/
-            {
+            if (med.getLocalDate().isBefore(date)) {
                 deleteElement(med.getId());
             }
         }
     }
-
-    public void deleteExpiredMeds(int year, int month, int day) throws SQLException {
-        List<Medicine> medicineList = this.selectAll();
-        Connection connection = ConnectionUtil.createConnection();
-
-        for (Medicine med : medicineList) {
-            if (med.getExpireDate().getWyearWrong() == year) {
-                if (med.getExpireDate().getMonthWrong() == month) {
-                    if (med.getExpireDate().getDayWrong() > day) {
-
-                    } else {
-                        deleteElement(med.getId());
-                    }
-                } else if (med.getExpireDate().getMonthWrong() > month) {
-                } else {
-                    deleteElement(med.getId());
-                }
-
-            } else if (med.getExpireDate().getWyearWrong() > year) {
-            } else {
-                deleteElement(med.getId());
-            }
-        }
-    }
-
 
     //--------------------------------------------------
 //        for (Medicine med : medicineList) {
@@ -108,10 +80,7 @@ public class AptekDAO {
             medicine.setName(resultSet.getString(2));
             medicine.setStock(resultSet.getInt(3));
             medicine.setPrice(resultSet.getDouble(4));
-            medicine.setExpireDateDay(resultSet.getInt(5));
-            medicine.setExpireDateMonth(resultSet.getInt(6));
-            medicine.setExpireDateYear(resultSet.getInt(7));
-            medicine.setExpireDate2(resultSet.getTime(8).toLocalTime());
+            medicine.setLocalDate(resultSet.getDate(5).toLocalDate());
             medicineList.add(medicine);
         }
         ConnectionUtil.closeConnection(connection, preparedStatement, resultSet);

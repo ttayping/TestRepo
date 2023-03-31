@@ -1,5 +1,7 @@
 package org.example;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 public class Medicine {
     private int id;
@@ -7,7 +9,16 @@ public class Medicine {
     private int stock;
     private double price;
     private LocalTime expireDate2;
+    private LocalDate localDate             ;
     private ExpireDate expireDate;
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
 
     public LocalTime getExpireDate2() {
         return expireDate2;

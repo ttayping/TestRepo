@@ -7,8 +7,8 @@ public class Main {
         AptekDAO aptekDAO = new AptekDAO();
         //  System.out.println(aptekDAO.showStock("saglamol"));
         //   System.out.println(aptekDAO.calculateTotalPrice());
-        aptekDAO.deleteExpiredMeds(2023,2,20);
+//        aptekDAO.deleteExpiredMeds(2023,2,20);
         // System.out.println(aptekDAO.selectAll());
-
+        aptekDAO.deleteExpiredMeds();
     }
 }

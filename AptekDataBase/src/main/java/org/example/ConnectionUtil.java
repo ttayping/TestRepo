@@ -6,7 +6,7 @@ public class ConnectionUtil {
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "1312acab";
+    private static final String PASSWORD = "admin";
 
     private ConnectionUtil() {
     }
