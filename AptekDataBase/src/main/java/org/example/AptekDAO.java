@@ -40,7 +40,7 @@ public class AptekDAO {
         Connection connection = ConnectionUtil.createConnection();
 
         for (Medicine med : medicineList) {
-            if (med.getExpireDate().getYearWrong() == year) {
+            if (med.getExpireDate().getWyearWrong() == year) {
                 if (med.getExpireDate().getMonthWrong() == month) {
                     if (med.getExpireDate().getDayWrong() > day) {
 
@@ -52,7 +52,7 @@ public class AptekDAO {
                     deleteElement(med.getId());
                 }
 
-            } else if (med.getExpireDate().getYearWrong() > year) {
+            } else if (med.getExpireDate().getWyearWrong() > year) {
             } else {
                 deleteElement(med.getId());
             }
