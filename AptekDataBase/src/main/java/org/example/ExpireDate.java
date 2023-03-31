@@ -1,12 +1,12 @@
 package org.example;
 public class ExpireDate {
-    private int day;
+    private int dayW;
     private int monthWrong;
     private int yearWrong;
 
     @Override
     public String toString() {
-        return day +
+        return dayW +
                 "." + monthWrong +
                 "." + yearWrong;
     }
@@ -17,13 +17,13 @@ public class ExpireDate {
 //        this.year = year;
 //    }
 
-    public int getDay() {
-        return day;
+    public int getDayW() {
+        return dayW;
     }
 
-    public void setDay(int day) {
-        this.day = day;
-        if(day<0 && day>31){
+    public void setDayW(int dayW) {
+        this.dayW = dayW;
+        if(dayW <0 && dayW >31){
             throw new ExpireDateException();
         }
     }

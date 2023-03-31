@@ -42,7 +42,7 @@ public class AptekDAO {
         for (Medicine med : medicineList) {
             if (med.getExpireDate().getYearWrong() == year) {
                 if (med.getExpireDate().getMonthWrong() == month) {
-                    if (med.getExpireDate().getDay() > day) {
+                    if (med.getExpireDate().getDayW() > day) {
 
                     } else {
                         deleteElement(med.getId());
