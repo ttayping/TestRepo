@@ -10,7 +10,6 @@ public class Medicine {
     private double price;
     private LocalTime expireDate2;
     private LocalDate localDate             ;
-    private ExpireDate expireDate;
 
     public LocalDate getLocalDate() {
         return localDate;
@@ -60,35 +59,14 @@ public class Medicine {
         this.price = price;
     }
 
-    public ExpireDate getExpireDate() {
-        return expireDate;
-    }
-
-    public Medicine (){
-        ExpireDate expireDate1 = new ExpireDate();
-        this.expireDate=expireDate1;
-    }
-    public void setExpireDateDay(int day) {
-        expireDate.setDayWrong(day);
-    }
-    public void setExpireDateMonth(int month) {
-        expireDate.setMonthWrong(month);
-    }
-    public void setExpireDateYear(int year) {
-        expireDate.setWyearWrong(year);
-    }
-
-
-
-
-    @Override
+        @Override
     public String toString() {
         return "Medicine{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", stock=" + stock +
                 ", price=" + price +
-                ", expireDate=" + expireDate +
+                ", expireDate=" + localDate +
                 '}';
     }
 }
