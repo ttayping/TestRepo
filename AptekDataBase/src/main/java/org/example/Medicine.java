@@ -1,6 +1,5 @@
 package org.example;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class Medicine {
     private int id;
@@ -65,7 +64,7 @@ public class Medicine {
         expireDate.setMonth(month);
     }
     public void setExpireDateYear(int year) {
-        expireDate.setYear(year);
+        expireDate.setYearWrong(year);
     }
 
 

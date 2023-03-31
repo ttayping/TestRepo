@@ -3,13 +3,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class AptekDAO {
     private static final String SELECT_APTEK_DB = "select * from aptek";
@@ -44,7 +40,7 @@ public class AptekDAO {
         Connection connection = ConnectionUtil.createConnection();
 
         for (Medicine med : medicineList) {
-            if (med.getExpireDate().getYear() == year) {
+            if (med.getExpireDate().getYearWrong() == year) {
                 if (med.getExpireDate().getMonth() == month) {
                     if (med.getExpireDate().getDay() > day) {
 
@@ -56,7 +52,7 @@ public class AptekDAO {
                     deleteElement(med.getId());
                 }
 
-            } else if (med.getExpireDate().getYear() > year) {
+            } else if (med.getExpireDate().getYearWrong() > year) {
             } else {
                 deleteElement(med.getId());
             }
